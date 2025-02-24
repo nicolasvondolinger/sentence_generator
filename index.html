@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frase Interativa</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fdf6f6; /* Fundo rosê claro */
+      font-family: 'Arial', sans-serif;
+    }
+
+    #text {
+      font-size: 2rem;
+      color: #d8a7b1; /* Rosê pastel */
+      text-align: center;
+      letter-spacing: 0.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="text"></div>
+
+  <script>
+    const frase = "Feliz aniversário, minha linda! Jesus te abençoe. \n Eu te amo!"; // Frase a ser exibida
+    let index = 0;
+    const textDiv = document.getElementById('text');
+
+    // Evento para capturar qualquer tecla pressionada
+    document.addEventListener('keydown', () => {
+      if (index < frase.length) {
+        textDiv.textContent += frase[index];
+        index++;
+      }
+    });
+  </script>
+</body>
+</html>
