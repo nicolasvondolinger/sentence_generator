@@ -9,33 +9,49 @@
       margin: 0;
       height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: #fdf6f6; /* Fundo rosê claro */
+      background-color: #fdf6f6;
       font-family: 'Arial', sans-serif;
     }
 
     #text {
       font-size: 2rem;
-      color: #d8a7b1; /* Rosê pastel */
+      color: #d8a7b1;
       text-align: center;
       letter-spacing: 0.1rem;
+    }
+
+    #info {
+      position: absolute;
+      bottom: 20px;
+      font-size: 1.2rem;
+      color: #d8a7b1;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div id="text"></div>
+  <div id="info">Aperte qualquer tecla</div>
 
   <script>
-    const frase = "Feliz aniversário, minha linda! Jesus te abençoe. \n Eu te amo!"; // Frase a ser exibida
+    const frase = "Feliz aniversário, minha linda! Jesus te abençoe. Eu te amo! ❤️❤️❤️";
     let index = 0;
     const textDiv = document.getElementById('text');
 
-    // Evento para capturar qualquer tecla pressionada
     document.addEventListener('keydown', () => {
       if (index < frase.length) {
-        textDiv.textContent += frase[index];
+        if (frase[index] === '!') {
+          textDiv.innerHTML += '!<br><br>';
+        } else {
+          textDiv.innerHTML += frase[index];
+        }
         index++;
+      } else {
+        index = 0;
+        textDiv.innerHTML = "";
       }
     });
   </script>
